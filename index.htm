@@ -91,4 +91,17 @@ h1 {
                 </div>
             </div>
     </body>
+    <script type="text/javascript">
+        //not finished
+        $.get( "/test", function( data ) {
+
+        }, "json" );
+    function getstuff(stufftoget){
+        $.get( "/getTasks",{data : stufftoget}, function( data ) {
+          $( "body" )
+            .append( "Name: " + data.name ) // John
+            .append( "Time: " + data.time ); //  2pm
+        }, "json" );
+}
+    </script>
 </html>
