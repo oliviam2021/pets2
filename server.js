@@ -4,6 +4,10 @@ const bodyParser = require('body-parser')
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 const sqlite3 = require('sqlite3').verbose()
 const crypto = require('crypto')
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
+app.use(cookieParser());
+app.use(session({secret: "Shh, keep it a secret!"}));
 app.use(express.static(__dirname));
 
 app.listen(8080, function(){
@@ -45,6 +49,7 @@ app.post('/homepage', urlencodedParser, function (req, res) {
       rows.forEach((row)=>{
          if(hashsalt(password, row.salt)== row.password){
             console.log('authenticated')
+            req.session.email = "asdf"
             res.sendFile(__dirname + '/home.html')}
          else{
             res.end('Failed!')
@@ -53,6 +58,9 @@ app.post('/homepage', urlencodedParser, function (req, res) {
       })
       
    })
+})
+app.get('/test', urlencodedParser, function (req, res) {
+  console.log(req.session.email)
 })
 
 
