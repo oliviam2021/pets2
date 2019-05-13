@@ -56,7 +56,7 @@ h1 {
                 <form action="/register" method='post' id="form">
                     Enter Email Address:
                     <br>
-                    <input type="email" class="form-control" name="email1">
+                    <input type="text" class="form-control" name="email1">
                     <br> <br>
                     Enter Password:
                     <br>
@@ -76,17 +76,17 @@ h1 {
             color:black !important;border-color:black;background-color:white !important;box-shadow: 5px 2px 2px black;">
                 <div class="card-header" style='background-color: white;margin:auto;border-radius:100%;border-color:lightgrey;'><h3>Log In</h3></div>
                 <div class="card-body" style='min-height:30%; background-color: white;border-radius:30%;margin:auto'>
-                        <form action="/authenticate" style='margin:auto;'>
+                        <form action="/homepage" method='post' style='margin:auto;'>
                             <br><br>
                             Enter Email Address:
                             <br>
-                            <input type="email" class="form-control" name="email2">
+                            <input type="text" class="form-control" name="email2">
                             <br> <br><br>
                             Enter Password:
                             <br>
                             <input type="password" class="form-control" name="loginPword">
                             <br><br><br>
-                            <button type="button" class="btn btn-success disabled"  style='width:100%;' value = "Submit">Submit</button>
+                            <input type="submit" class="btn btn-success disabled"  name='submit' style='width:100%;'>
                         </form>
                 </div>
             </div>

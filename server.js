@@ -35,16 +35,17 @@ app.post('/register', urlencodedParser, function (req, res) {
   res.sendFile(__dirname + '/index.htm');
 
 })
-app.post('/authenticate', urlencodedParser, function (req, res) {
-   email = req.body.email
-   password = req.body.password
+app.post('/homepage', urlencodedParser, function (req, res) {
+   console.log('eag')
+   email = req.body.email2
+   password = req.body.loginPword
    let db = new sqlite3.Database('accounts.db');
 
    db.all(`SELECT salt, password FROM accounts WHERE ?="username"`, [email], (err, rows) => {
       rows.forEach((row)=>{
          if(hashsalt(password, row.salt)== row.password){
             console.log('authenticated')
-            res.end('Authenticated!')}
+            res.sendFile(__dirname + '/home.html')}
          else{
             res.end('Failed!')
             console.log('faileesds')
